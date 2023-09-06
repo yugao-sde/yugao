@@ -16,7 +16,7 @@ const Footer = ({ }) => {
             <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
               ABOUT YOU
             </h1>
-            <Button type="primary">Schedule a call</Button>
+            <Button type="primary" onClick={() => { window.open("mailto:yugao2077@gmail.com") }}>Let's Talk</Button>
             <div className="mt-10">
               <Socials />
             </div>

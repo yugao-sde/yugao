@@ -131,9 +131,11 @@ export default function Home() {
         )}
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
           <h1 className="text-2xl text-bold">About.</h1>
-          <p className="tablet:m-10 mt-2 text-xl laptop:text-3xl w-full laptop:w-3/5">
-            {data.aboutpara}
-          </p>
+          {data.aboutpara.split("\n").map((para, index) => (
+            <p className="tablet:m-10 mt-5 text-xl laptop:text-xl w-full laptop:w-3/5">
+              {para}
+            </p>
+          ))}
         </div>
         <Footer />
       </div>
