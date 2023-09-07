@@ -10,7 +10,8 @@ import Head from "next/head";
 import Button from "../components/Button";
 import Link from "next/link";
 import Cursor from "../components/Cursor";
-
+import TypeWriter from "../components/TypeWriter/TypeWriter";
+import ReactTyped from 'react-typed'
 // Local Data
 import data from "../data/portfolio.json";
 
@@ -74,8 +75,10 @@ export default function Home() {
             <h1
               ref={textTwo}
               className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
-            >
-              {data.headerTaglineTwo}
+            >I'm a &lt; <ReactTyped strings={["Developer", "Designer", "Pets Parent", "Gamer", "Anime Illustrator"]} typeSpeed={130}
+              loop
+              backSpeed={40}
+              showCursor={true} /> /&gt;
             </h1>
             <h1
               ref={textThree}
