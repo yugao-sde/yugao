@@ -12,7 +12,6 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
   const [mounted, setMounted] = useState(false);
 
   const { name, showBlog, showResume } = data;
-
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -115,78 +114,78 @@ const Header = ({ handleWorkScroll, handleAboutScroll, isBlog }) => {
           </>
         )}
       </Popover>
-      <div
-        className={`mt-10 hidden flex-row items-center justify-between sticky ${theme === "light" && "bg-white"
-          } dark:text-white top-0 z-10 tablet:flex`}
-      >
-        <h1
-          onClick={() => router.push("/")}
-          className="font-medium cursor-pointer mob:p-2 laptop:p-0"
+      {mounted && theme && data.darkMode && (
+        <div
+          className={`mt-10 hidden flex-row items-center justify-between sticky dark:text-white ${theme === "light" && "bg-white"} top-0 z-10 tablet:flex`}
         >
-          {name}.
-        </h1>
-        {!isBlog ? (
-          <div className="flex">
-            <Button onClick={handleWorkScroll}>Work</Button>
-            <Button onClick={handleAboutScroll}>About</Button>
-            {showBlog && (
-              <Button onClick={() => router.push("/blog")}>Blog</Button>
-            )}
-            {showResume && (
-              <Button
-                onClick={() => router.push("/resume")}
-                classes="first:ml-1"
-              >
-                Resume
-              </Button>
-            )}
+          <h1
+            onClick={() => router.push("/")}
+            className="font-medium cursor-pointer mob:p-2 laptop:p-0"
+          >
+            {name}.
+          </h1>
+          {!isBlog ? (
+            <div className="flex">
+              <Button onClick={handleWorkScroll}>Work</Button>
+              <Button onClick={handleAboutScroll}>About</Button>
+              {showBlog && (
+                <Button onClick={() => router.push("/blog")}>Blog</Button>
+              )}
+              {showResume && (
+                <Button
+                  onClick={() => router.push("/resume")}
+                  classes="first:ml-1"
+                >
+                  Resume
+                </Button>
+              )}
 
-            <Button onClick={() => window.open("mailto:yugao2077@gmail.com")}>
-              Contact
-            </Button>
-            {mounted && theme && data.darkMode && (
-              <Button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                <img
-                  className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+              <Button onClick={() => window.open("mailto:yugao2077@gmail.com")}>
+                Contact
               </Button>
-            )}
-          </div>
-        ) : (
-          <div className="flex">
-            <Button onClick={() => router.push("/")}>Home</Button>
-            {showBlog && (
-              <Button onClick={() => router.push("/blog")}>Blog</Button>
-            )}
-            {showResume && (
-              <Button
-                onClick={() => router.push("/resume")}
-                classes="first:ml-1"
-              >
-                Resume
-              </Button>
-            )}
+              {mounted && theme && data.darkMode && (
+                <Button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                >
+                  <img
+                    className="h-6"
+                    src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+                  ></img>
+                </Button>
+              )}
+            </div>
+          ) : (
+            <div className="flex">
+              <Button onClick={() => router.push("/")}>Home</Button>
+              {showBlog && (
+                <Button onClick={() => router.push("/blog")}>Blog</Button>
+              )}
+              {showResume && (
+                <Button
+                  onClick={() => router.push("/resume")}
+                  classes="first:ml-1"
+                >
+                  Resume
+                </Button>
+              )}
 
-            <Button onClick={() => window.open("mailto:yugao2077@gmail.com")}>
-              Contact
-            </Button>
-
-            {mounted && theme && data.darkMode && (
-              <Button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              >
-                <img
-                  className="h-6"
-                  src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
-                ></img>
+              <Button onClick={() => window.open("mailto:yugao2077@gmail.com")}>
+                Contact
               </Button>
-            )}
-          </div>
-        )}
-      </div>
+
+              {mounted && theme && data.darkMode && (
+                <Button
+                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                >
+                  <img
+                    className="h-6"
+                    src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
+                  ></img>
+                </Button>
+              )}
+            </div>
+          )}
+        </div>)}
     </>
   );
 };
