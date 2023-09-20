@@ -10,7 +10,6 @@ import Head from "next/head";
 import Button from "../components/Button";
 import Link from "next/link";
 import Cursor from "../components/Cursor";
-import { CarouselDefault } from "../components/Carousel";
 import ReactTyped from 'react-typed'
 // Local Data
 import data from "../data/portfolio.json";
@@ -140,7 +139,6 @@ export default function Home() {
             </p>
           ))}
         </div>
-        <CarouselDefault />
         <Footer />
       </div>
     </div>
