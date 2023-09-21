@@ -1,0 +1,10 @@
+.arrow {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.3;
+    transform: scale(1);
+}
+
+.arrow:hover {
+    opacity: 0.9;
+    transform: scale(1.2);
+}

@@ -13,6 +13,7 @@ import Cursor from "../components/Cursor";
 import ReactTyped from 'react-typed'
 // Local Data
 import data from "../data/portfolio.json";
+import Carousel from "../components/Carousel";
 
 export default function Home() {
   // Ref
@@ -133,14 +134,21 @@ export default function Home() {
         )}
         <div className="mt-10 laptop:mt-40 p-2 laptop:p-0" ref={aboutRef}>
           <h1 className="text-2xl text-bold">About.</h1>
-          {data.aboutpara.split("\n").map((para, index) => (
-            <p className="tablet:m-10 mt-5 text-xl laptop:text-xl w-full laptop:w-3/5">
-              {para}
-            </p>
-          ))}
+          <div className="flex flex-wrap">
+            <div className="laptop:text-xl w-full laptop:w-3/5">
+              {data.aboutpara.split("\n").map((para, index) => (
+                <p className="tablet:m-10 mt-5 text-xl">
+                  {para}
+                </p>
+              ))}
+            </div>
+            <div className="tablet:w-full laptop:w-2/5">
+              <Carousel />
+            </div>
+          </div>
         </div>
         <Footer />
       </div>
-    </div>
+    </div >
   );
 }
